@@ -1,46 +1,40 @@
 
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 
 }
-h1 {
-    height: 1vh;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding-right: 50px;
-}
-h2 {
-    height: 1vh;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding-right: 50px;
-}
-h3 {
-    height: 1vh;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding-right: 50px;
-}
 
+  
 body {
-    background-color: rgb(251, 243, 214);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgb(251, 243, 214);
+  }
+
+.container > h1 {
+    margin-left: 65%;
+    margin-right: 29%;
+    width: 170px;
+    font-size: 40px;
+    background-color: aqua;
 }
 
 main {
-    padding-top: 9%;
     padding-left: 7%;
 }
 
 #board-container {
     display: grid;
     grid-gap: 3px;
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: repeat(3, 150px) 130px;
+    grid-template-rows: repeat(3, 150px);
     width: 456px;
-    background-color: rgb(0, 157, 255);
+    height: 456px;
+    background-color: rgb(0, 225, 255);
 }
 
 #board-container > div {
@@ -54,10 +48,10 @@ main {
     align-items: center;
     justify-content: center;
 }
-
-#record-area {
+ 
+.score {
     display: flex;
-    flex-direction: column;
-    justify-content: right;
-
+    justify-content: center;
+    align-items: center;
+    padding-left: 30%;
 }
