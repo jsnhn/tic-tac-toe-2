@@ -6,60 +6,105 @@
 
 }
 
-
 body {
       height: 100vh;
-      margin-left:auto;
-      margin-right:auto;
-      width:960px;
+      width:100%;
+      display: flex;
       background-color: rgb(251, 243, 214);
-  }
+}
+/* margin-left:auto;
+margin-right:auto;
+width:960px; */
 
-h1 {
-    margin: 1% 0% -9% 60%;
-    width: 265px;
-    font-size: 40px;
-    background-color: aqua;
+#left {
+    height: 100%;
+    width: 50%;
+    margin: 10% 0% 0% 10%;
 }
 
-h2 {
-    padding: 7% 0% 4% 22%;
-}
-
-main {
-    padding-left: 7%;
+#right {
+    height: 100%;
+    width: 50%;
+    margin: 0% 10% 0% 0%;
 }
 
 #board-container {
     display: grid;
     grid-gap: 3px;
-    grid-template-columns: repeat(3, 150px) 250px;
+    grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
     width: 456px;
     height: 456px;
     background-color: rgb(0, 225, 255);
 }
 
-#board-container > div {
-    padding: 5px;
-    background-color: rgb(251, 243, 214);
+h2 {
+    margin: 5% 0% 5% 28%;
 }
 
+#board-container > div {
+    background-color: rgb(251, 243, 214);
+}
 
 .box {
     display: flex;
     align-items: center;
     justify-content: center;
 }
- 
-.score {
+
+button {
+    margin: 5% 0% 0% 36%;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25%;
+    margin-right: 64%;
+    background-color:aliceblue
+}
+
+#title > div:first-child {
+    font-size: 30px;
+    margin: 0% 0% 0% 0%;
+}
+
+#title > div:nth-child(2) {
+    font-size: 30px;
+    margin: 0% 0% 0% 37%;
+}
+
+#title > div:nth-child(3) {
+    font-size: 30px;
+    margin: 0% 0% 0% 76%;
+}
+
+#score-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 25% 80% 0% 0%;
+}
+
+.score > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score > p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* .score {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 30%;
     font-weight: bold;
-}
-
+} */
+/* 
 button {
     margin: 5% 0% 0% 23%;
-}
+}  */
