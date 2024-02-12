@@ -35,15 +35,29 @@ function init() {
 }
 
 function render(){
-    renderBoard()
+    renderBoard() 
+    renderMessage()
+    renderScore()
 };
 
 function renderBoard() {
 // use the board state and for each cell in the board array
 // either show an X, O, or nothing in each child of the boardEl
-    board.forEach(function(cell) {
-       console.log(cell)
-    })
+board.forEach(function(cell, index) {
+    boardEl.children[index].innerHTML = board[index]
+    });
+};
+
+function renderMessage() {
+    if (!winner) {
+        messageEl.innerText = `${currentPlayer.toUpperCase()} Player, let's go!` 
+    } else {
+
+    }
+}
+
+function renderScore(){
+
 };
 
 function handleBoardClick(){
@@ -53,4 +67,3 @@ function handleBoardClick(){
 function handleResetClick(){
     console.log('reset was clicked')
 };
-

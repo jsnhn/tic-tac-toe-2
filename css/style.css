@@ -86,13 +86,19 @@ button {
     margin: 25% 80% 0% 0%;
 }
 
-.score > span {
+.x-score{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.score > p {
+.t-score{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.o-score{
     display: flex;
     flex-direction: column;
     align-items: center;
