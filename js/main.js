@@ -1,5 +1,17 @@
 /*----- constants -----*/
+winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [3, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
 
+// if you use forEach on this, if i am checking did we win in the the middle 
+// are there array iterator methods that stops ealry. check the lesson
 
 /*----- state variables -----*/
 let board, winner, score, currentPlayer
@@ -78,7 +90,6 @@ function handleBoardClick(evt) {
     board[idx] = currentPlayer;
 
     changeTurn();
-    console.log(idx, currentPlayer)
     render()
 };
 
@@ -92,4 +103,16 @@ function changeTurn() {
     } else {
         currentPlayer = 'x'
     }
+};
+
+function checkWinner(){
+    // 1. rely on state - in this case it would the board. this is how you would determine who won if you were looking at it.
+    // how would you write out a conditional in conjuction with board/winning combo. look at how to use the winning C array 
+    // by looking at each combo at a time. are you gonna put return in an if statement? where you use that variable is up to you. 
+
+    let hasWon = winningCombos.some(function(winCombo){
+        
+    });
+
+    
 };
