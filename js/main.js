@@ -37,23 +37,23 @@ function init() {
 }
 
 
-function render(){
-    renderBoard() 
+function render() {
+    renderBoard()
     renderMessage()
     renderScore()
 };
 
 function renderBoard() {
-// use the board state and for each cell in the board array
-// either show an X, O, or nothing in each child of the boardEl
-    board.forEach(function(cell, index) {
-    boardEl.children[index].innerHTML = board[index]
+    // use the board state and for each cell in the board array
+    // either show an X, O, or nothing in each child of the boardEl
+    board.forEach(function (cell, index) {
+        boardEl.children[index].innerHTML = board[index]
     });
 };
 
 function renderMessage() {
     if (!winner) {
-        messageEl.innerText = `${currentPlayer.toUpperCase()} Player, let's go!` 
+        messageEl.innerText = `${currentPlayer.toUpperCase()} Player, let's go!`
     } else if (winner === 't') {
         messageEl.innerText = 'TIE GAME'
     } else {
@@ -68,16 +68,21 @@ function renderScore() {
     scoreEl.children[2].innerText = `${score.o} O Player`
 }
 
-function handleBoardClick(evt){
-   const idx = evt.target.id;
-   board[idx] = currentPlayer;
+function handleBoardClick(evt) {
+    if (
+        evt.target.id === 'board-container'
+        || board[evt.target.id]
+// ^ When you need to check certain things about the game don’t check the dom, rely on ur state
+    ) return
+    const idx = evt.target.id;
+    board[idx] = currentPlayer;
 
-   changeTurn();
-   console.log(idx, currentPlayer)
-   render()
+    changeTurn();
+    console.log(idx, currentPlayer)
+    render()
 };
 
-function handleResetClick(){
+function handleResetClick() {
     console.log('reset was clicked')
 };
 
