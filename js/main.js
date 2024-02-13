@@ -69,16 +69,22 @@ function renderScore() {
 }
 
 function handleBoardClick(evt){
-   const id = evt.target.id;
-   const box = {}
+   const idx = evt.target.id;
+   board[idx] = currentPlayer;
 
-   if (id !== 'board-container' && !box[id] && !winner) {
-    box[id] = currentPlayer
-   }
+   changeTurn();
+   console.log(idx, currentPlayer)
    render()
-   console.log(box)
 };
 
 function handleResetClick(){
     console.log('reset was clicked')
+};
+
+function changeTurn() {
+    if (currentPlayer === 'x') {
+        currentPlayer = 'o'
+    } else {
+        currentPlayer = 'x'
+    }
 };
