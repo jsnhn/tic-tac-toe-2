@@ -68,8 +68,15 @@ function renderScore() {
     scoreEl.children[2].innerText = `${score.o} O Player`
 }
 
-function handleBoardClick(){
-    console.log('board was clicked')
+function handleBoardClick(evt){
+   const id = evt.target.id;
+   const box = {}
+
+   if (id !== 'board-container' && !box[id] && !winner) {
+    box[id] = currentPlayer
+   }
+   render()
+   console.log(box)
 };
 
 function handleResetClick(){
