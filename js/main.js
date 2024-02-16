@@ -15,6 +15,7 @@ winningCombos = [
 
 /*----- state variables -----*/
 let board, winner, score, currentPlayer
+//update state when you need to
 // board an array that is gonna store null for empty spaces, 'x' or 'o' strings.
 // winner will store null if there is no winner, 'x' or 'o' depending on who won or 't' if a tie.
 
@@ -88,7 +89,8 @@ function handleBoardClick(evt) {
     ) return
     const idx = evt.target.id;
     board[idx] = currentPlayer;
-
+    
+    checkWinner();
     changeTurn();
     render()
 };
@@ -105,14 +107,27 @@ function changeTurn() {
     }
 };
 
-function checkWinner(){
+function checkWinner() {
+    winningCombos.some(function(combo) {
+        if (board[combo[0]] && board[combo[0]] === board[combo[1]] 
+            && board[combo[0]] === board[combo[2]]
+            ) {
+                winner = currentPlayer;
+                changeTurn();
+                return true; // Exit the loop early if a winner is found
+        }
+        return false; // Continue to the next iteration if no winner is found
+    });
+        if (!winner && board.every(function(box) {
+            return box !== null
+        })) {
+            winner = 't'
+        }
+};
+
+// it means the first winning combination starts from the top-left cell and goes horizontally to the right.
+// The expression board[combo[0]] && board[combo[0]] checks if the value of the cell at the first index of the winning 
+//combination is not empty (i.e., it has a marker like 'X' or 'O').
     // 1. rely on state - in this case it would the board. this is how you would determine who won if you were looking at it.
     // how would you write out a conditional in conjuction with board/winning combo. look at how to use the winning C array 
-    // by looking at each combo at a time. are you gonna put return in an if statement? where you use that variable is up to you. 
-
-    let hasWon = winningCombos.some(function(winCombo){
-        
-    });
-
-    
-};
+    // by looking at each combo at a time. are you gonna put return in an if statement? where you use that variable is up to you.
