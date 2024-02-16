@@ -97,7 +97,15 @@ function handleBoardClick(evt) {
 };
 
 function handleResetClick() {
-    console.log('reset was clicked')
+    winner = null;
+    currentPlayer = 'x'
+    board = [
+        null, null, null,
+        null, null, null,
+        null, null, null,
+    ]
+    render()
+
 };
 
 function changeTurn() {
@@ -124,7 +132,14 @@ function checkWinner() {
         })) {
             winner = 't'
         }
+        
 };
+// it means the first winning combination starts from the top-left cell and goes horizontally to the right.
+// The expression board[combo[0]] && board[combo[0]] checks if the value of the cell at the first index of the winning 
+//combination is not empty (i.e., it has a marker like 'X' or 'O').
+    // 1. rely on state - in this case it would the board. this is how you would determine who won if you were looking at it.
+    // how would you write out a conditional in conjuction with board/winning combo. look at how to use the winning C array 
+    // by looking at each combo at a time. are you gonna put return in an if statement? where you use that variable is up to you.
 
 function updateScore() {
     if (winner === 'x'){
@@ -137,12 +152,6 @@ function updateScore() {
     score.t ++
     scoreEl.children[1].innerText = `${score.t} TIES`
     }
-}
+};
 
  
-// it means the first winning combination starts from the top-left cell and goes horizontally to the right.
-// The expression board[combo[0]] && board[combo[0]] checks if the value of the cell at the first index of the winning 
-//combination is not empty (i.e., it has a marker like 'X' or 'O').
-    // 1. rely on state - in this case it would the board. this is how you would determine who won if you were looking at it.
-    // how would you write out a conditional in conjuction with board/winning combo. look at how to use the winning C array 
-    // by looking at each combo at a time. are you gonna put return in an if statement? where you use that variable is up to you.
