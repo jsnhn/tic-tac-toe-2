@@ -54,6 +54,7 @@ function render() {
     renderBoard()
     renderMessage()
     renderScore()
+    updateScore()
 };
 
 function renderBoard() {
@@ -114,9 +115,9 @@ function checkWinner() {
             ) {
                 winner = currentPlayer;
                 changeTurn();
-                return true; // Exit the loop early if a winner is found
+                return true; // Exits the loop early if a winner is found
         }
-        return false; // Continue to the next iteration if no winner is found
+        return false; // Continues to the next iteration if no winner is found
     });
         if (!winner && board.every(function(box) {
             return box !== null
@@ -125,6 +126,20 @@ function checkWinner() {
         }
 };
 
+function updateScore() {
+    if (winner === 'x'){
+    score.x ++
+    scoreEl.children[0].innerText = `${score.x} X Player`
+} else if (winner === 'o') {
+    score.o ++
+    scoreEl.children[2].innerText = `${score.o} O Player`
+} else if (winner === 't') {
+    score.t ++
+    scoreEl.children[1].innerText = `${score.t} TIES`
+    }
+}
+
+ 
 // it means the first winning combination starts from the top-left cell and goes horizontally to the right.
 // The expression board[combo[0]] && board[combo[0]] checks if the value of the cell at the first index of the winning 
 //combination is not empty (i.e., it has a marker like 'X' or 'O').
